@@ -11,10 +11,16 @@ def read_champsim_trace(filename, max_accesses=1_000_000):
                 break
 
             parts = line.strip().split()
-            if len(parts) != 2:
+            
+            # Handle two formats:
+            # Format 1: "op address" (e.g., "L 0x7fffffffe000")
+            # Format 2: "address" only (e.g., "0x7fffffffe000")
+            if len(parts) == 2:
+                op, addr_str = parts
+            elif len(parts) == 1:
+                addr_str = parts[0]
+            else:
                 continue
-
-            op, addr_str = parts
 
             try:
                 addr = int(addr_str, 16)
