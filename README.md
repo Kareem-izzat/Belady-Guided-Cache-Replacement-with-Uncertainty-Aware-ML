@@ -18,7 +18,7 @@ This project implements an intelligent cache replacement policy that uses a Deci
 - **Total Blocks:** 512
 
 ### ML Model
-- **Type:** Single Decision Tree (not Random Forest)
+- **Type:** Single Decision Tree
 - **Depth:** 8
 - **Leaves:** 241
 - **Features:** 2 (Recency, Frequency)
